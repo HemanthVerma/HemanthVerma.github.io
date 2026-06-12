@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemanth Verma Pinnamaraju | Aerospace & Product</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Vibrant Deep Navy & Nebula Palette */
+            --bg-color: #060913;
+            --text-main: #ffffff; 
+            --text-muted: #cbd5e1; 
+            --accent: #38bdf8; /* Vibrant Sky Blue */
+            --accent-alt: #818cf8; /* Electric Indigo */
+            --accent-glow: rgba(56, 189, 248, 0.5);
+            --card-bg: rgba(15, 23, 42, 0.65); 
+            --card-border: rgba(56, 189, 248, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Vibrant Dynamic Mesh Background */
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 0%, rgba(56, 189, 248, 0.15), transparent 40%),
+                radial-gradient(circle at 85% 100%, rgba(129, 140, 248, 0.15), transparent 40%);
+            z-index: -2;
+            transition: background-position 0.3s ease-out;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 75vh; 
+            padding-top: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .hero-text {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-image-container {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: textReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        /* Vibrant Image Glow */
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border-radius: 24px;
+            background: linear-gradient(45deg, var(--accent), transparent, var(--accent-alt));
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(20px);
+            transition: opacity 0.6s ease;
+        }
+
+        .hero-image:hover::before {
+            opacity: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.03);
+            border-color: var(--accent);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Subtle Cinematic Blur Fade Reveal */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #ffffff, var(--accent), var(--accent-alt));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: textReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0;
+            animation: textReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+        }
+
+        @keyframes textReveal {
+            0% { opacity: 0; filter: blur(12px); transform: translateY(20px); }
+            100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+
+        /* Extremely Smooth Scroll Reveal */
+        section {
+            padding: 4rem 0; 
+            opacity: 0;
+            transform: translateY(40px);
+            transform-origin: center center;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--card-border), transparent);
+            margin-left: 20px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Glass Cards with Colored Spotlight */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: border-color 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(
+                800px circle at var(--mouse-x, 0) var(--mouse-y, 0), 
+                rgba(56, 189, 248, 0.15),
+                transparent 40%
+            );
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ffffff; 
+            font-weight: 600;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--card-border);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover img {
+            transform: scale(1.04);
+            filter: brightness(1.1); 
+        }
+
+        .img-wrapper {
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        img.transparent-logo {
+            height: auto;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 0;
+            filter: brightness(0) invert(1) opacity(0.8);
+            box-shadow: none;
+            max-width: 200px;
+            transition: all 0.4s ease;
+        }
+
+        .card:hover img.transparent-logo {
+            filter: brightness(0) invert(1) opacity(1);
+            transform: scale(1.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Toolkit Specific CSS */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        /* Case Studies Layout */
+        .case-study-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .case-study-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .case-study-item::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(
+                800px circle at var(--mouse-x, 0) var(--mouse-y, 0), 
+                rgba(56, 189, 248, 0.15),
+                transparent 40%
+            );
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .case-study-item:hover {
+            transform: translateX(10px);
+            border-color: var(--accent);
+            border-left-color: var(--accent-alt) !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .case-study-item:hover::before { opacity: 1; }
+
+        .case-study-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-study-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            color: #ffffff; 
+        }
+
+        .case-study-info p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .case-study-link, .btn {
+            position: relative;
+            z-index: 1;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            background: rgba(56, 189, 248, 0.05);
+            border: 1px solid var(--accent);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+        }
+
+        .case-study-link:hover, .btn:hover {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 25px var(--accent-glow);
+            filter: brightness(1.2); 
+            transform: translateY(-2px);
+        }
+
+        .card-content a:not(.case-study-link):not(.btn) {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: rgba(56, 189, 248, 0.3);
+            text-underline-offset: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .card-content a:not(.case-study-link):not(.btn):hover {
+            color: #ffffff;
+            text-decoration-color: #ffffff;
+            filter: brightness(1.3);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Contact Section */
+        .contact-box {
+            text-align: center;
+            background: linear-gradient(145deg, var(--card-bg), rgba(6, 9, 19, 0.9));
+            border: 1px solid var(--card-border);
+            padding: 4rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 2rem;
+            padding-bottom: 6rem; /* Extra padding so chatbot doesn't overlap footer content */
+        }
+
+        /* =========================================
+           CHATBOT UI STYLES 
+           ========================================= */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-fab {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px var(--accent-glow);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            color: #000;
+        }
+
+        .chat-fab:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #fff;
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 85px;
+            right: 0;
+            width: 360px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            transform-origin: bottom right;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chat-window.open {
+            display: flex;
+            animation: chatOpen 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes chatOpen {
+            0% { opacity: 0; transform: scale(0.5) translateY(50px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .chat-header {
+            background: rgba(255,255,255,0.03);
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Online green dot */
+        .chat-header h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .close-chat:hover {
+            color: #fff;
+        }
+
+        .chat-body {
+            height: 380px;
+            padding: 1.2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Custom Scrollbar for Chat */
+        .chat-body::-webkit-scrollbar { width: 6px; }
+        .chat-body::-webkit-scrollbar-track { background: transparent; }
+        .chat-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+
+        .message {
+            max-width: 85%;
+            padding: 0.8rem 1.2rem;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            animation: messagePop 0.3s ease forwards;
+        }
+
+        @keyframes messagePop {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.bot {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-main);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .message.user {
+            background: var(--accent);
+            color: #000;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .chat-options {
+            padding: 1.2rem;
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .chat-option-btn {
+            background: rgba(56, 189, 248, 0.05);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent);
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .chat-option-btn:hover {
+            background: var(--accent);
+            color: #000;
+            transform: translateX(5px);
+        }
+
+        /* Typing indicator animation */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 0.4rem 0.2rem;
+        }
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
+                padding-top: 6rem;
+            }
+            .hero-image img { max-width: 240px; }
+            .case-study-item { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+            .case-study-link, .btn { width: 100%; text-align: center; justify-content: center; }
+            .btn-container { flex-direction: column; }
+            .mckinsey-layout { flex-direction: column; text-align: center; }
+            .mckinsey-layout ul { text-align: left; }
+            
+            /* Responsive Chatbot */
+            .chat-widget { bottom: 20px; right: 20px; }
+            .chat-window { width: calc(100vw - 40px); bottom: 75px; right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-mesh" id="bg-mesh"></div>
+
+    <div class="container">
+        <!-- Upgraded Hero Section -->
+        <header>
+            <div class="hero-text">
+                <h1>Hemanth Verma Pinnamaraju</h1>
+                <p class="subtitle">Senior Designer @TechMahindra | AI Enthusiast | Converting Caffeine to Code</p>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-image">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQH89w_fsz-OSg/profile-displayphoto-scale_400_400/B56ZlQdnwXKIAg-/0/1757991568157?e=1782950400&v=beta&t=3kvZ8AUSh4qxmIKnvqP2rzVmU-mKhADlPccrLHo414k" alt="Hemanth Verma Pinnamaraju Profile">
+                </div>
+            </div>
+        </header>
+        
+        <section class="scroll-anim" id="about">
+            <h2>A Brief About Myself</h2>
+            <div class="card hover-target" style="max-width: 850px;">
+                <div class="card-content">
+                    <p>My career didn't start in software—it started in the hangars. I spent three years figuring out how to give massive flying machines the complex upgrades they needed. Now, as a Senior Designer @TechMahindra, I architect customer experiences enhancing passenger comfort and promoting sustainability all along.</p>
+                    <br>
+                    <p>My transition to Product Management isn't a pivot; <strong>it's an evolution</strong>. My ideology stands to understand the customer requirement and developing innovative solutions. My ultimate trajectory? <strong>Build something to solve a real-world problem that requires someone who understands the industry as a whole.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-anim" id="skills">
+            <h2>Skills I Acquired</h2>
+            <div class="bento-grid" id="skills-grid">
+                <div class="card hover-target">
+                    <div class="card-content">
+                        <span class="badge">PLM Dynamics</span>
+                        <h3>Managing the Whole Life Cycle</h3>
+                        <p>From the initial phase of understanding the customer's need to the release of design. Worked extensively with <strong>Windchill</strong> and Enovia VPM to manage the entire product development process.</p>
+                    </div>
+                </div>
+                <div class="card hover-target">
+                    <div class="card-content">
+                        <span class="badge">Architecture</span>
+                        <h3>Physical Design & Integration</h3>
+                        <p>Designed and integrated new and existing systems into configuration-based environments under different aircraft programs.</p>
+                    </div>
+                </div>
+                <div class="card hover-target">
+                    <div class="card-content">
+                        <span class="badge">Diagnostics</span>
+                        <h3>Investigating to Minute Details</h3>
+                        <p>Problem solving is not an approach, it is a life skill which I mastered. Definitive approach to identifying and resolving complex issues through thorough analysis and attention to detail.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-anim" id="toolkit">
+            <h2>The Toolkit</h2>
+            <div class="bento-grid" id="toolkit-grid">
+                <div class="card hover-target">
+                    <div class="card-content">
+                        <span class="badge">01. PLM & Engineering</span>
+                        <div class="tech-stack">
+                            <span class="tech-tag">PTC Windchill</span>
+                            <span class="tech-tag">Enovia VPM</span>
+                            <span class="tech-tag">Systems Architecture</span>
+                            <span class="tech-tag">Root-Cause Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-target">
+                    <div class="card-content">
+                        <span class="badge">02. Data & Product</span>
+                        <div class="tech-stack">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Jira</span>
+                            <span class="tech-tag">Agile / Scrum</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card hover-target">
+                    <div class="card-content">
+                        <span class="badge">03. Mechanical</span>
+                        <div class="tech-stack">
+                            <span class="tech-tag">CATIA V5</span>
+                            <span class="tech-tag">SolidWorks</span>
+                            <span class="tech-tag">Ansys Fluent</span>
+                            <span class="tech-tag">HyperMesh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-anim" id="roadmap">
+            <h2>Career Roadmap</h2>
+            <div class="case-study-list">
+                <div class="case-study-item hover-target" style="border-left-color: var(--accent);">
+                    <div class="case-study-info">
+                        <span class="badge" style="background: rgba(56, 189, 248, 0.1);">V 1.0 | Jan 2023 - May 2025</span>
+                        <h3>Design Engineer @Tata Technologies Pvt Ltd</h3>
+                        <p>Spent two years in Cabin Integration Project as a SPOC to Airbus. Mastered root-cause analysis, cross-functional leadership, and navigating KPI's.</p>
+                    </div>
+                </div>
+                <div class="case-study-item hover-target" style="border-left-color: var(--accent-alt);">
+                    <div class="case-study-info">
+                        <span class="badge" style="background: rgba(129, 140, 248, 0.1); color: var(--accent-alt);">V 2.0 | Current Status</span>
+                        <h3>Senior Designer @Tech Mahindra</h3>
+                        <p>Cabin Retofit for Airbus A350 Project, Cabin and MSI specialization with CATIA V5 for 3D and 2D design.</p>
+                    </div>
+                </div>
+                <div class="case-study-item hover-target" style="border-left-color: #f472b6;">
+                    <div class="case-study-info">
+                        <span class="badge" style="background: rgba(244, 114, 182, 0.1); color: #f472b6;">V 3.0 | Future Release</span>
+                        <h3>Product Leadership</h3>
+                        <p>The ultimate trajectory. Scaling my impact by combining my technical systems background with elite business strategy to solve massive, real-world industry problems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- McKinsey Leadership Section -->
+        <section class="scroll-anim" id="leadership">
+            <h2>Leadership & Strategy</h2>
+            <div class="card hover-target">
+                <div class="card-content mckinsey-layout" style="display: flex; align-items: center; gap: 2rem;">
+                    <div style="flex: 1;">
+                        <span class="badge" style="background: rgba(129, 140, 248, 0.1); color: var(--accent-alt); border-color: rgba(129, 140, 248, 0.3);">McKinsey Forward 2026</span>
+                        <h3>McKinsey & Company Leadership Program</h3>
+                        <ul style="color: var(--text-muted); padding-left: 1.2rem; margin-top: 1rem; line-height: 1.8; font-size: 0.95rem;">
+                            <li>Selected for the highly competitive McKinsey Forward program, focusing on executive-level problem solving, resilience, and adaptability.</li>
+                            <li>Bridging the gap between highly technical aerospace engineering and overarching product strategy.</li>
+                            <li>Applying global business strategy frameworks and agile leadership to drive sustainable innovation in aircraft integration systems.</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 0.5; display: flex; justify-content: center; align-items: center; min-width: 150px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/McKinsey_%26_Company_logo.svg/512px-McKinsey_%26_Company_logo.svg.png" alt="McKinsey Logo" class="transparent-logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-anim" id="case-studies">
+            <h2>On-going Research</h2>
+            <div class="case-study-list" id="research-list">
+                <div class="case-study-item hover-target">
+                    <div class="case-study-info">
+                        <h3>Incubating AI in Micro Aerial Vehicles</h3>
+                        <p>Researched the integration of artificial intelligence in micro aerial vehicles for enhanced autonomous navigation and decision-making capabilities.</p>
+                    </div>
+                    <a href="https://ieeexplore.ieee.org/document/10029233/" target="_blank" class="case-study-link">View Research</a>
+                </div>
+                <div class="case-study-item hover-target">
+                    <div class="case-study-info">
+                        <h3>How AI can transform Airline Operations</h3>
+                        <p>A comprehensive look into market trends utilizing AI Agents for predictive analytics and operational optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-anim" id="projects">
+            <h2>Articles You can Read</h2>
+            <div class="bento-grid" id="articles-grid">
+                <div class="card hover-target">
+                    <div class="card-content">
+                        <div class="img-wrapper">
+                            <img src="https://mediarenditions.airbus.com/-mtTz897fvTfnIA6zrOYN-Ew_nBR8sXj04qLpySRitc/resize?src=kpkp%3A%2F%2Fairbus%2F38%2F592%2F592849-rbqvvi70gq.jpg&w=960&h=720&poiX=50&poiY=50&el=true&t=fill-down" alt="Airbus ECLIF-X">
+                        </div>
+                        <span class="badge">Sustainability</span>
+                        <h3>ECLIF-X: Airbus-led Flight Test</h3>
+                        <p><em>How Airbus-backed research is tackling non-CO2 emissions.</em></p>
+                        <br>
+                        <a href="https://www.airbus.com/en/newsroom/stories/2026-03-chasing-contrails-how-airbus-backed-research-is-tackling-non-co2-emissions" target="_blank" class="case-study-link" style="display: block; text-align: center;">Read Article</a>
+                    </div>
+                </div>
+                <div class="card hover-target">
+                    <div class="card-content">
+                        <div class="img-wrapper">
+                            <img src="https://dxc.com/content/dam/dxc/projects/dxc-com/common/images/landscape-unsorted2/plane_42_22936844-1050x650.jpg" alt="AI in Aerospace">
+                        </div>
+                        <span class="badge">AI For Aerospace</span>
+                        <h3>The Future of AI in Aerospace</h3>
+                        <p><em>By DXC Technologies. Highlights key aspects of AI integration in the industry.</em></p>
+                        <br>
+                        <a href="https://dxc.com/insights/knowledge-base/paper/the-future-of-ai-in-the-aerospace-industry" target="_blank" class="case-study-link" style="display: block; text-align: center;">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-anim" id="contact">
+            <div class="contact-box">
+                <h2>Let's Connect</h2>
+                <p>Currently based in Bengaluru. Ready to talk products, data models, global MBA programs, or the perfect camera exposure settings.</p>
+                <div class="btn-container">
+                    <a href="mailto:pinnamaraju.hemanth18275@gmail.com" class="btn">Email Me</a>
+                    <a href="https://www.linkedin.com/in/hemanthverma/" target="_blank" class="btn">Connect On LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hemanth Verma Pinnamaraju</p>
+    </footer>
+
+    <!-- NEW FRONTEND CHATBOT WIDGET -->
+    <div class="chat-widget">
+        <!-- Floating Action Button -->
+        <button class="chat-fab" id="chat-fab">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+        </button>
+
+        <!-- Chat Window UI -->
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <h3>Hemanth's AI Assistant</h3>
+                <button class="close-chat" id="close-chat">×</button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="message bot">System initialized. Hello! 👋 I'm Hemanth's portfolio assistant. What would you like to know about his background?</div>
+            </div>
+            <!-- Predefined interactive options -->
+            <div class="chat-options" id="chat-options">
+                <button class="chat-option-btn" data-reply="Hemanth has nearly 3 years of hands-on experience in the aerospace domain, working as a Design Engineer and Senior Designer. He specializes in aircraft retrofitting, root-cause analysis, and cross-functional leadership under strict KPI's.">What is his core engineering expertise?</button>
+                <button class="chat-option-btn" data-reply="He is actively bridging the gap between technical execution and business strategy. He is transitioning into Product Management, aiming to leverage his system-level thinking, data analysis skills, and McKinsey Forward training.">What are his future career goals?</button>
+                <button class="chat-option-btn" data-reply="You can reach Hemanth directly at pinnamaraju.hemanth18275@gmail.com or click the 'Connect On LinkedIn' button in the contact section above. He's currently based in Bengaluru!">How can I contact Hemanth?</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optimized Intersection Observer for smoother scroll reveals
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px', 
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-anim').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Spotlight Mouse Effect
+        document.addEventListener("mousemove", (e) => {
+            const targets = document.querySelectorAll('.hover-target');
+            
+            targets.forEach(target => {
+                const rect = target.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                target.style.setProperty('--mouse-x', `${x}px`);
+                target.style.setProperty('--mouse-y', `${y}px`);
+            });
+            
+            const bg = document.getElementById("bg-mesh");
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            bg.style.transform = `translate(${mouseX * -20}px, ${mouseY * -20}px)`;
+        });
+
+        // ==========================================
+        // CHATBOT LOGIC
+        // ==========================================
+        const chatFab = document.getElementById('chat-fab');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChat = document.getElementById('close-chat');
+        const chatBody = document.getElementById('chat-body');
+        const optionBtns = document.querySelectorAll('.chat-option-btn');
+
+        // Toggle chat window open/close
+        chatFab.addEventListener('click', () => {
+            chatWindow.classList.add('open');
+            chatFab.style.transform = 'scale(0)'; // hide FAB when chat is open
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatWindow.classList.remove('open');
+            chatFab.style.transform = 'scale(1)'; // show FAB again
+        });
+
+        // Handle user clicking an option
+        optionBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const userQuestion = this.innerText;
+                const botAnswer = this.getAttribute('data-reply');
+                
+                // Hide options once a choice is made to keep it clean
+                document.getElementById('chat-options').style.display = 'none';
+
+                // 1. Append User Message
+                appendMessage('user', userQuestion);
+
+                // 2. Append Typing Indicator
+                const typingId = appendTypingIndicator();
+
+                // 3. Simulate processing delay, then show answer
+                setTimeout(() => {
+                    removeTypingIndicator(typingId);
+                    appendMessage('bot', botAnswer);
+                    
+                    // Show options again after bot replies (optional, adds slight delay for UX)
+                    setTimeout(() => {
+                        document.getElementById('chat-options').style.display = 'flex';
+                    }, 500);
+
+                }, 1500); // 1.5 second delay makes it feel real
+            });
+        });
+
+        function appendMessage(sender, text) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', sender);
+            msgDiv.innerText = text;
+            chatBody.appendChild(msgDiv);
+            scrollToBottom();
+        }
+
+        function appendTypingIndicator() {
+            const id = 'typing-' + Date.now();
+            const typingDiv = document.createElement('div');
+            typingDiv.classList.add('message', 'bot', 'typing-indicator');
+            typingDiv.id = id;
+            
+            for(let i=0; i<3; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('typing-dot');
+                typingDiv.appendChild(dot);
+            }
+            
+            chatBody.appendChild(typingDiv);
+            scrollToBottom();
+            return id;
+        }
+
+        function removeTypingIndicator(id) {
+            const element = document.getElementById(id);
+            if(element) element.remove();
+        }
+
+        function scrollToBottom() {
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    </script>
+</body>
+</html>
