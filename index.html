@@ -424,6 +424,14 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
+        /* Twitter Feed Styles */
+        .twitter-feed-container {
+            border-radius: 12px;
+            overflow: hidden;
+            width: 100%;
+            min-height: 200px;
+        }
+
         /* Contact Section */
         .contact-box {
             text-align: center;
@@ -805,7 +813,7 @@
                         </ul>
                     </div>
                     <div style="flex: 0.5; display: flex; justify-content: center; align-items: center; min-width: 150px;">
-                        <img src="https://images.seeklogo.com/logo-png/44/1/mckinsey-company-logo-png_seeklogo-446477.png" alt="McKinsey Logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/McKinsey_%26_Company_logo.svg/512px-McKinsey_%26_Company_logo.svg.png" alt="McKinsey Logo" class="transparent-logo">
                     </div>
                 </div>
             </div>
@@ -860,6 +868,22 @@
             </div>
         </section>
 
+        <!-- NEW TWITTER EMBED SECTION -->
+        <section class="scroll-anim" id="social-feed">
+            <h2>Live Updates</h2>
+            <div class="card hover-target" style="max-width: 600px; margin: 0 auto;">
+                <div class="card-content twitter-feed-container">
+                    <a class="twitter-timeline" 
+                       data-theme="dark" 
+                       data-height="500" 
+                       data-chrome="noheader nofooter noborders transparent"
+                       href="https://twitter.com/HPinnamara90401?ref_src=twsrc%5Etfw">
+                    </a> 
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </section>
+
         <section class="scroll-anim" id="contact">
             <div class="contact-box">
                 <h2>Let's Connect</h2>
@@ -867,7 +891,6 @@
                 <div class="btn-container">
                     <a href="mailto:pinnamaraju.hemanth18275@gmail.com" class="btn">Email Me</a>
                     <a href="https://www.linkedin.com/in/hemanthverma/" target="_blank" class="btn">Connect On LinkedIn</a>
-                    <a href="https://drive.google.com/file/d/14DMNwXkGnIXqvZSLzgv0wAEGmWHXHyBt/view?usp=sharing" target="_blank" class="btn">Download CV</a>
                 </div>
             </div>
         </section>
